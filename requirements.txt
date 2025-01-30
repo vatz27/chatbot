@@ -1,0 +1,12 @@
+flask>=2.0.1
+flask-cors>=3.0.10
+pydantic>=2.0.0
+python-dotenv>=0.19.0
+openai>=1.0.0
+langchain>=0.1.0
+langchain-community>=0.0.10
+faiss-cpu>=1.7.4
+pypdf>=3.0.0
+typing>=3.7.4
+uuid>=1.30
+gunicorn
