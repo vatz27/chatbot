@@ -51,7 +51,7 @@ memory = ConversationMemory()
 
 def load_curriculum_data():
    """Load curriculum data from JSON file"""
-   json_path = "chatbot.json"  # Put the JSON file in the root directory   
+   json_path = "chatbot/chatbot.json"  # Put the JSON file in the root directory   
    try:
        if os.path.exists(json_path):
            with open(json_path, 'r', encoding='utf-8') as f:
