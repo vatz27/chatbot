@@ -18,7 +18,7 @@ load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 class ConversationMemory:
-    def _init_(self):
+    def __init__(self):
         self.conversations: Dict[str, List[Dict]] = {}
         self.user_data = {}
     
