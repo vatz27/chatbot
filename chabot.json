@@ -1,0 +1,749 @@
+{
+  "6th": {
+    "English": {
+      "chapters": [
+        "Chapter 1 Fables and Folk Tales",
+        "Chapter 2 Friendship",
+        "Chapter 3 Nurturing Nature",
+        "Chapter 4 Sports and Wellness",
+        "Chapter 5 Culture and Tradition"
+      ]
+    },
+    "Mathematics": {
+      "chapters": [
+        "Chapter 1 Patterns in Mathematics",
+        "Chapter 2 Lines and Angles",
+        "Chapter 3 Number Play",
+        "Chapter 4 Data Handling and Presentation",
+        "Chapter 5 Prime Time",
+        "Chapter 6 Perimeter and Area",
+        "Chapter 7 Fractions",
+        "Chapter 8 Playing with Constructions",
+        "Chapter 9 Symmetry",
+        "Chapter 10 The Other Side of Zero"
+      ]
+    },
+    "Science": {
+      "chapters": [
+        "Chapter 1 The Wonderful World of Science",
+        "Chapter 2 Diversity in the Living World",
+        "Chapter 3 Mindful Eating: A Path to a Healthy Body",
+        "Chapter 4 Exploring Magnets",
+        "Chapter 5 Measurement of Length and Motion",
+        "Chapter 6 Materials Around Us",
+        "Chapter 7 Temperature and its Measurement",
+        "Chapter 8 A Journey through States of Water",
+        "Chapter 9 Methods of Separation in Everyday Life",
+        "Chapter 10 Living Creatures: Exploring their Characteristics",
+        "Chapter 11 Nature's Treasures",
+        "Chapter 12 Beyond Earth"
+      ]
+    },
+    "Social": {
+      "chapters": [
+        "Chapter 1 Why Social Science",
+        "Chapter 2 Oceans and Continents",
+        "Chapter 3 Landforms and Life",
+        "Chapter 4 Timeline and Sources of History",
+        "Chapter 5 India, That is Bharat",
+        "Chapter 6 The Beginnings of Indian Civilisation",
+        "Chapter 7 India's Cultural Roots",
+        "Chapter 8 Unity in Diversity, or 'Many in the One'",
+        "Chapter 9 Family and Community",
+        "Chapter 10 Grassroots Democracy – Part 1 Governance",
+        "Chapter 11 Grassroots Democracy – Part 2 Local Government in Rural Areas",
+        "Chapter 12 Grassroots Democracy – Part 3 Local Government in Urban Areas",
+        "Chapter 13 The Value of Work",
+        "Chapter 14 Economic Activities Around Us"
+      ]
+    }
+  },
+  "7th": {
+    "English": {
+      "chapters": [
+        "Chapter 1 Three Questions",
+        "Chapter 2 A Gift of Chappals",
+        "Chapter 3 Gopal and the Hilsa-Fish",
+        "Chapter 4 The Ashes that Made Trees Bloom",
+        "Chapter 5 Quality",
+        "Chapter 6 Expert Detectives",
+        "Chapter 7 The Invention of Vita Wonk",
+        "Chapter 8 Fire Friend and Foe"
+      ]
+    },
+    "Mathematics": {
+      "chapters": [
+        "Chapter 1 Integers",
+        "Chapter 2 Fractions and Decimals",
+        "Chapter 3 Data Handling",
+        "Chapter 4 Simple Equations",
+        "Chapter 5 Lines and Angles",
+        "Chapter 6 The Triangle and its Properties",
+        "Chapter 7 Comparing Quantities",
+        "Chapter 8 Rational Numbers",
+        "Chapter 9 Perimeter and Area",
+        "Chapter 10 Algebraic Expressions",
+        "Chapter 11 Exponents and Powers",
+        "Chapter 12 Symmetry",
+        "Chapter 13 Visualising Solid Shapes"
+      ]
+    },
+    "Science": {
+      "chapters": [
+        "Chapter 1 Nutrition in Plants",
+        "Chapter 2 Nutrition in Animals",
+        "Chapter 3 Fibre to Fabric",
+        "Chapter 4 Heat",
+        "Chapter 5 Acids, Bases and Salts",
+        "Chapter 6 Physical and Chemical Changes",
+        "Chapter 7 Weather, Climate and Adaptations",
+        "Chapter 8 Winds, Storms and Cyclones",
+        "Chapter 9 Soil",
+        "Chapter 10 Respiration in Organisms"
+      ]
+    },
+    "History": {
+      "chapters": [
+        "Chapter 1 Tracing Changes through a Thousand Years",
+        "Chapter 2 Kings and Kingdoms",
+        "Chapter 3 Delhi 12th to 15th Century",
+        "Chapter 4 The Mughal Empire",
+        "Chapter 5 Tribes, Nomads and Settled Communities",
+        "Chapter 6 Devotional Paths to the Divine",
+        "Chapter 7 The Making of Regional Cultures"
+      ]
+    },
+    "Geography": {
+      "chapters": [
+        "Chapter 1 Environment",
+        "Chapter 2 Inside Our Earth",
+        "Chapter 3 Our Changing Earth",
+        "Chapter 4 Air",
+        "Chapter 5 Water",
+        "Chapter 6 Human-Environment Interactions",
+        "Chapter 7 Life in the Deserts"
+      ]
+    },
+    "Politics": {
+      "chapters": [
+        "Chapter 1 On Equality",
+        "Chapter 2 Role of the Government in Health",
+        "Chapter 3 How the State Government Works",
+        "Chapter 4 Growing up as Boys and Girls",
+        "Chapter 5 Women Change the World",
+        "Chapter 6 Understanding Media",
+        "Chapter 7 Markets Around Us"
+      ]
+    }
+  },
+  "8th": {
+    "English": {
+      "chapters": [
+        "Chapter 1 The Best Christmas Present in the World",
+        "Chapter 2 The Tsunami",
+        "Chapter 3 Glimpses of the Past",
+        "Chapter 4 Bepin Choudhury's Lapse of Memory",
+        "Chapter 5 The Summit Within",
+        "Chapter 6 This is Jody's Fawn",
+        "Chapter 7 A Visit to Cambridge",
+        "Chapter 8 A Short Monsoon Diary",
+        "Chapter 9 How The Camel Got His Hump",
+        "Chapter 10 Children At Work",
+        "Chapter 11 The Selfish Giant",
+        "Chapter 12 The Treasure Within",
+        "Chapter 13 Princess September",
+        "Chapter 14 The Fight",
+        "Chapter 15 Jalebis",
+        "Chapter 16 Ancient Education System of India"
+      ]
+    },
+    "Mathematics": {
+      "chapters": [
+        "Chapter 1 Rational Numbers",
+        "Chapter 2 Linear Equations in One Variable",
+        "Chapter 3 Understanding Quadrilaterals",
+        "Chapter 4 Data Handling",
+        "Chapter 5 Squares and Square Roots",
+        "Chapter 6 Cubes and Cube Roots",
+        "Chapter 7 Comparing Quantities",
+        "Chapter 8 Algebraic Expressions and Identities",
+        "Chapter 9 Mensuration",
+        "Chapter 10 Exponents and Powers",
+        "Chapter 11 Direct and Inverse Proportions",
+        "Chapter 12 Factorization",
+        "Chapter 13 Introduction to Graphs"
+      ]
+    },
+    "Science": {
+      "chapters": [
+        "Chapter 1 Crop Production and Management",
+        "Chapter 2 Microorganisms: Friend and Foe",
+        "Chapter 3 Coal and Petroleum",
+        "Chapter 4 Combustion and Flame",
+        "Chapter 5 Conservation of Plants and Animals",
+        "Chapter 6 Reproduction in Animals",
+        "Chapter 7 Reaching the Age of Adolescence",
+        "Chapter 8 Force and Pressure",
+        "Chapter 9 Friction",
+        "Chapter 10 Sound",
+        "Chapter 11 Chemical Effects of Electric Current",
+        "Chapter 12 Some Natural Phenomena",
+        "Chapter 13 Light"
+      ]
+    },
+    "History": {
+      "chapters": [
+        "Chapter 1 How, When and Where",
+        "Chapter 2 From Trade to Territory The Company Establishes Power",
+        "Chapter 3 Ruling the Countryside",
+        "Chapter 4 Tribals, Dikus and the Vision of a Golden Age",
+        "Chapter 5 When People Rebel 1857 and After",
+        "Chapter 6 Civilising the Native, Educating the Nation",
+        "Chapter 7 Women, Caste and Reform",
+        "Chapter 8 The Making of the National Movement 1870s–1947"
+      ]
+    },
+    "Geography": {
+      "chapters": [
+        "Chapter 1 Resources",
+        "Chapter 2 Land, Soil, Water, Natural Vegetation and Wildlife Resources",
+        "Chapter 3 Agriculture",
+        "Chapter 4 Industries",
+        "Chapter 5 Human Resources"
+      ]
+    },
+    "Politics": {
+      "chapters": [
+        "Chapter 1 The Indian Constitution",
+        "Chapter 2 Understanding Secularism",
+        "Chapter 3 Parliament and The Making of Laws",
+        "Chapter 4 Judiciary",
+        "Chapter 5 Understanding Marginalisation",
+        "Chapter 6 Confronting Marginalisation",
+        "Chapter 7 Public Facilities Solutions",
+        "Chapter 8 Law and Social Justice Solutions"
+      ]
+    }
+  },
+  "9th": {
+    "English": {
+      "chapters": [
+        "Chapter 1 The Fun They Had",
+        "Chapter 2 The Road Not Taken",
+        "Chapter 3 The Sound of Music",
+        "Chapter 4 Wind",
+        "Chapter 5 The Little Girl",
+        "Chapter 6 Rain On The Roof",
+        "Chapter 7 A Truly Beautiful Mind",
+        "Chapter 8 The Lake Isle Of Innisfree",
+        "Chapter 9 The Snake and The Mirror",
+        "Chapter 10 A Legend Of The Northland",
+        "Chapter 11 My Childhood",
+        "Chapter 12 No Men Are Foreign",
+        "Chapter 13 Reach for the Top",
+        "Chapter 14 On Killing A Tree",
+        "Chapter 15 Kathmandu",
+        "Chapter 16 Trees",
+        "Chapter 17 If I Were You",
+        "Chapter 18 A Slumber Did My Spirit Seal",
+        "Chapter 19 Fear No More",
+        "Chapter 20 The Lost Child",
+        "Chapter 21 The Adventure Of Toto",
+        "Chapter 22 Iswaran The Storyteller",
+        "Chapter 23 In The Kingdom Of Fools",
+        "Chapter 24 The Happy Prince",
+        "Chapter 25 Weathering The Storm In Ersama",
+        "Chapter 26 The Last Leaf",
+        "Chapter 27 A House Is Not A Home",
+        "Chapter 28 The Beggar"
+      ]
+    },
+    "Mathematics": {
+      "chapters": [
+        "Chapter 1 Number Systems",
+        "Chapter 2 Polynomials",
+        "Chapter 3 Coordinate Geometry",
+        "Chapter 4 Linear Equations in Two Variables",
+        "Chapter 5 Introduction to Euclid's Geometry",
+        "Chapter 6 Lines and Angles",
+        "Chapter 7 Triangles",
+        "Chapter 8 Quadrilaterals",
+        "Chapter 9 Circles",
+        "Chapter 10 Heron's Formula",
+        "Chapter 11 Surface Areas and Volumes",
+        "Chapter 12 Statistics"
+      ]
+    },
+    "Science": {
+      "chapters": [
+        "Chapter 1 Matter in Our Surroundings",
+        "Chapter 2 Is Matter Around Us Pure?",
+        "Chapter 3 Atoms and Molecules",
+        "Chapter 4 Structure of the Atom",
+        "Chapter 5 The Fundamental Unit of Life",
+        "Chapter 6 Tissues",
+        "Chapter 7 Motion",
+        "Chapter 8 Force and Laws of Motion",
+        "Chapter 9 Gravitation",
+        "Chapter 10 Work and Energy",
+        "Chapter 11 Sound",
+        "Chapter 12 improvements In Food Resources"
+      ]
+    },
+    "History": {
+      "chapters": [
+        "Chapter 1 The French Revolution",
+        "Chapter 2 Socialism in Europe and the Russian Revolution",
+        "Chapter 3 Nazism and the Rise of Hitler",
+        "Chapter 4 Forest Society and Colonialism",
+        "Chapter 5 Pastoralists in the Modern World"
+      ]
+    },
+    "Geography": {
+      "chapters": [
+        "Chapter 1 India–Size and Location",
+        "Chapter 2 Physical Features of India",
+        "Chapter 3 Drainage",
+        "Chapter 4 Climate",
+        "Chapter 5 Natural Vegetation And Wildlife"
+      ]
+    },
+    "Politics": {
+      "chapters": [
+        "Chapter 1 What is Democracy? Why Is Democracy?",
+        "Chapter 2 Constitutional Design",
+        "Chapter 3 Electoral Politics",
+        "Chapter 4 Working of Institutions",
+        "Chapter 5 Democratic Rights"
+      ]
+    },
+    "Economics": {
+      "chapters": [
+        "Chapter 1 The Story of Village Palampur",
+        "Chapter 2 People as Resource",
+        "Chapter 3 Poverty as a Challenge",
+        "Chapter 4 Food Security in India"
+      ]
+    }
+  },
+  "10th": {
+    "English": {
+      "chapters": [
+        "Chapter 1 A Letter to God",
+        "Chapter 2 Nelson Mandela Long Walk to Freedom",
+        "Chapter 3 Two Stories about Flying",
+        "Chapter 4 From the Diary of Anne Frank",
+        "Chapter 5 Glimpese of India",
+        "Chapter 6 Mijibil the Otter",
+        "Chapter 7 Madam Rides the Bus",
+        "Chapter 8 The Sermon at Benares",
+        "Chapter 9 The Proposal",
+        "Chapter 10 A Tirumph of Surgery",
+        "Chapter 11 The Thief's Story",
+        "Chapter 12 The Midnight Visitor",
+        "Chapter 13 A Question of Trust",
+        "Chapter 14 Footprints without Feet",
+        "Chapter 15 Making of a Scientist",
+        "Chapter 16 The Necklace",
+        "Chapter 17 Bholi",
+        "Chapter 18 The Book That Saved the Earth"
+      ]
+    },
+    "Mathematics": {
+      "chapters": [
+        "Chapter 1 Real Numbers",
+        "Chapter 2 Polynomials",
+        "Chapter 3 Pair of Linear Equations in Two Variables",
+        "Chapter 4 Quadratic Equations",
+        "Chapter 5 Arithmetic Progressions",
+        "Chapter 6 Triangles",
+        "Chapter 7 Coordinate Geometry",
+        "Chapter 8 Introduction to Trigonometry",
+        "Chapter 9 Some Applications of Trigonometry",
+        "Chapter 10 Circles",
+        "Chapter 11 Constructions",
+        "Chapter 12 Areas Related to Circles",
+        "Chapter 13 Surface Areas and Volumes",
+        "Chapter 14 Statistics",
+        "Chapter 15 Probability"
+      ]
+    },
+    "Science": {
+      "chapters": [
+        "Chapter 1 Chemical Reactions and Equations",
+        "Chapter 2 Acids, Bases and Salts",
+        "Chapter 3 Metals and Non-metals",
+        "Chapter 4 Carbon and Its Compounds",
+        "Chapter 5 Life Processes",
+        "Chapter 6 Control and Coordination",
+        "Chapter 7 How do Organisms Reproduce?",
+        "Chapter 8 Heredity and Evolution",
+        "Chapter 9 Light – Reflection and Refraction",
+        "Chapter 10 The Human Eye and the Colourful World",
+        "Chapter 11 Electricity",
+        "Chapter 12 Magnetic Effects of Electric Current",
+        "Chapter 13 Our Environment"
+      ]
+    },
+    "History": {
+      "chapters": [
+        "Chapter 1 The Rise of Nationalism in Europe",
+        "Chapter 2 Nationalism in India",
+        "Chapter 3 The Making of a Global World",
+        "Chapter 4 The Age of Industrialisation",
+        "Chapter 5 Print Culture and the Modern World"
+      ]
+    },
+    "Geography": {
+      "chapters": [
+        "Chapter 1 Resources and Development",
+        "Chapter 2 Forest and Wildlife Resources",
+        "Chapter 3 Water Resources",
+        "Chapter 4 Agriculture",
+        "Chapter 5 Minerals and Energy Resources",
+        "Chapter 6 Manufacturing Industries",
+        "Chapter 7 Lifelines of National Economy"
+      ]
+    },
+    "Politics": {
+      "chapters": [
+        "Chapter 1 Power-sharing",
+        "Chapter 2 Federalism",
+        "Chapter 3 Gender, Religion and Caste",
+        "Chapter 4 Political Parties",
+        "Chapter 5 Outcomes of Democracy"
+      ]
+    },
+    "Economics": {
+      "chapters": [
+        "Chapter 1 Development",
+        "Chapter 2 Sectors of the Indian Economy",
+        "Chapter 3 Money and Credit",
+        "Chapter 4 Globalisation and the Indian Economy",
+        "Chapter 5 Consumer Rights"
+      ]
+    }
+  },
+  "11th": {
+    "Biology": {
+      "chapters": [
+        "Chapter 1 The Living World",
+        "Chapter 2 Biological Classification",
+        "Chapter 3 Plant Kingdom",
+        "Chapter 4 Animal Kingdom",
+        "Chapter 5 Morphology of Flowering Plants",
+        "Chapter 6 Anatomy of Flowering Plants",
+        "Chapter 7 Structural Organisation in Animals",
+        "Chapter 8 The Unit of Life",
+        "Chapter 9 Biomolecules",
+        "Chapter 10 Cell Cycle and Cell Division",
+        "Chapter 11 Photosynthesis in Higher Plants",
+        "Chapter 12 Respiration in Plants",
+        "Chapter 13 Plant Growth and Development",
+        "Chapter 14 Breathing and Exchange of Gases",
+        "Chapter 15 Body Fluids and Circulation",
+        "Chapter 16 Excretory Products and Their Elimination",
+        "Chapter 17 Locomotion and Movement",
+        "Chapter 18 Neural Control and Coordination",
+        "Chapter 19 Chemical Coordination and Integration"
+      ]
+    },
+    "Chemistry": {
+      "chapters": [
+        "Chapter 1 Some Basic Concepts of Chemistry",
+        "Chapter 2 Structure of Atom",
+        "Chapter 3 Classification of Elements and Periodicity in Properties",
+        "Chapter 4 Chemical Bonding and Molecular Structure",
+        "Chapter 5 Thermodynamics",
+        "Chapter 6 Equilibrium",
+        "Chapter 7 Redox Reactions",
+        "Chapter 8 Organic Chemistry Some Basic Principles and Techniques",
+        "Chapter 9 Hydrocarbons"
+      ]
+    },
+    "Mathematics": {
+      "chapters": [
+        "Chapter 1 Sets",
+        "Chapter 2 Relations and Functions",
+        "Chapter 3 Trigonometric Functions",
+        "Chapter 4 Complex Numbers and Quadratic Equations",
+        "Chapter 5 Linear Inequalities",
+        "Chapter 6 Permutations and Combinations",
+        "Chapter 7 Binomial Theorem",
+        "Chapter 8 Sequences and Series",
+        "Chapter 9 Straight Lines",
+        "Chapter 10 Conic Sections",
+        "Chapter 11 Introduction to Three Dimensional Geometry",
+        "Chapter 12 Limits and Derivatives",
+        "Chapter 13 Statistics",
+        "Chapter 14 Probability"
+      ]
+    },
+    "English": {
+      "chapters": [
+        "Chapter 1 The Portrait of a Lady (Prose)",
+        "Chapter 2 A Photograph (Poem)",
+        "Chapter 3 We're not afraid to die…if we can all be together (Prose)",
+        "Chapter 4 Discovering Tut: The Saga Continues (Prose)",
+        "Chapter 5 The Laburnum Top (Poem)",
+        "Chapter 6 The Voice of the Rain (Poem)",
+        "Chapter 7 The Ailing Planet: The Green Movement's Role (Prose)",
+        "Chapter 8 Childhood (Poem)",
+        "Chapter 9 The Adventure (Prose)",
+        "Chapter 10 Silk Road (Prose)",
+        "Chapter 11 Father to Son (Poem)",
+        "Chapter 12 The Summer of the Beautiful White Horse",
+        "Chapter 13 The Address",
+        "Chapter 14 Mother's Day",
+        "Chapter 15 Birth",
+        "Chapter 16 The tale of the Melon City"
+      ]
+    },
+    "Physics": {
+      "chapters": [
+        "Chapter 1 Units and Measurements",
+        "Chapter 2 Motion in a Straight Line",
+        "Chapter 3 Motion in a Plane",
+        "Chapter 4 Laws of Motion",
+        "Chapter 5 Work, Energy, and Power",
+        "Chapter 6 System of Particles and Rotational Motion",
+        "Chapter 7 Gravitation",
+        "Chapter 8 Mechanical Properties of Solids",
+        "Chapter 9 Mechanical Properties of Fluids",
+        "Chapter 10 Thermal Properties of Matter",
+        "Chapter 11 Thermodynamics",
+        "Chapter 12 Kinetic Theory",
+        "Chapter 13 Oscillations",
+        "Chapter 14 Waves"
+      ]
+    },
+    "Accountancy": {
+      "chapters": [
+        "Chapter 1 Introduction to Accounting",
+        "Chapter 2 Theory Base of Accounting",
+        "Chapter 3 Recording of Transactions – I",
+        "Chapter 4 Recording of Transactions – II",
+        "Chapter 5 Bank Reconciliation Statement",
+        "Chapter 6 Trial Balance and Rectification of Errors",
+        "Chapter 7 Depreciation, Provisions and Reserves",
+        "Chapter 8 Financial Statements – I",
+        "Chapter 9 Financial Statements – II"
+      ]
+    },
+    "Business Studies": {
+      "chapters": [
+        "Chapter 1 Business, Trade and Commerce",
+        "Chapter 2 Forms of Business Organisation",
+        "Chapter 3 Private, Public and Global Enterprises",
+        "Chapter 4 Business Services",
+        "Chapter 5 Emerging Modes of Business",
+        "Chapter 6 Social Responsibilities of Business and Business Ethics",
+        "Chapter 7 Formation of a Company",
+        "Chapter 8 Sources of Business Finance",
+        "Chapter 9 Small Business and Entrepreneurship",
+        "Chapter 10 Internal Trade",
+        "Chapter 11 International Business"
+      ]
+    },
+    "Informatics Practices": {
+      "chapters": [
+        "Chapter 1 Computer System",
+        "Chapter 2 Emerging Trends",
+        "Chapter 3 Brief Overview of Python",
+        "Chapter 4 Working with Lists and Dictionaries",
+        "Chapter 5 Understanding Data",
+        "Chapter 6 Introduction To Numpy",
+        "Chapter 7 Database Concepts",
+        "Chapter 8 Introduction to Structured Query language (SQL)"
+      ]
+    },
+    "Economics": {
+      "chapters": [
+        "Chapter 1 Indian Economy on the Eve of Independence",
+        "Chapter 2 Indian Economy (1950 – 1990)",
+        "Chapter 3 Liberalisation, Privatisation and Globalisation: An Appraisal",
+        "Chapter 4 Human Capital Formation in India",
+        "Chapter 5 Rural Development",
+        "Chapter 6 Employment Growth, Informalisation and Other Issues",
+        "Chapter 7 Environment and Sustainable Development",
+        "Chapter 8 Comparative Development Experiences of India and Its Neighbours"
+      ]
+    },
+    "Computer Science": {
+      "chapters": [
+        "Chapter 1 Computer System",
+        "Chapter 2 Encoding Schemes and Number Systems",
+        "Chapter 3 Emerging Trends",
+        "Chapter 4 Introduction to Problem-Solving",
+        "Chapter 5 Getting Started with Python",
+        "Chapter 6 Flow of Control",
+        "Chapter 7 Functions",
+        "Chapter 8 Strings",
+        "Chapter 9 Lists",
+        "Chapter 10 Tuples and Dictionaries",
+        "Chapter 11 Societal Impact"
+      ]
+    }
+  },"12th": {
+  "Biology": {
+    "chapters": [
+      "Chapter 1 Sexual Reproduction in Flowering Plants",
+      "Chapter 2 Human Reproduction",
+      "Chapter 3 Reproductive Health",
+      "Chapter 4 Principles of Inheritance and Variation",
+      "Chapter 5 Molecular Basis of Inheritance",
+      "Chapter 6 Evolution",
+      "Chapter 7 Human Health and Diseases",
+      "Chapter 8 Microbes in Human Welfare",
+      "Chapter 9 Biotechnology Principles and Processes",
+      "Chapter 10 Biotechnology and Its Application",
+      "Chapter 11 Organisms and Populations",
+      "Chapter 12 Ecosystem",
+      "Chapter 13 Biodiversity and Conservation"
+    ]
+  },
+  "Chemistry": {
+    "chapters": [
+      "Chapter 1 Solutions",
+      "Chapter 2 Electrochemistry",
+      "Chapter 3 Chemical Kinetics",
+      "Chapter 4 The d & f Block Elements",
+      "Chapter 5 Coordination Compounds",
+      "Chapter 6 Haloalkanes and Haloarenes",
+      "Chapter 7 Alcohols, Phenols, and Ethers",
+      "Chapter 8 Aldehydes, Ketones, and Carboxylic Acids",
+      "Chapter 9 Amines",
+      "Chapter 10 Biomolecules"
+    ]
+  },
+  "Mathematics": {
+    "chapters": [
+      "Chapter 1 Relations and Functions",
+      "Chapter 2 Inverse Trigonometric Functions",
+      "Chapter 3 Matrices",
+      "Chapter 4 Determinants",
+      "Chapter 5 Continuity and Differentiability",
+      "Chapter 6 Application of Derivatives",
+      "Chapter 7 Integrals",
+      "Chapter 8 Application of Integrals",
+      "Chapter 9 Differential Equations",
+      "Chapter 10 Vector Algebra",
+      "Chapter 11 Three Dimensional Geometry",
+      "Chapter 12 Linear Programming",
+      "Chapter 13 Probability"
+    ]
+  },
+  "Physics": {
+    "chapters": [
+      "Chapter 1 Electric Charges and Fields",
+      "Chapter 2 Electrostatic Potential and Capacitance",
+      "Chapter 3 Current Electricity",
+      "Chapter 4 Moving Charges and Magnetism",
+      "Chapter 5 Magnetism and Matter",
+      "Chapter 6 Electromagnetic Induction",
+      "Chapter 7 Alternating Current",
+      "Chapter 8 Electromagnetic Waves",
+      "Chapter 9 Ray Optics and Optical Instruments",
+      "Chapter 10 Wave Optics",
+      "Chapter 11 Dual Nature of Radiation and Matter",
+      "Chapter 12 Atoms",
+      "Chapter 13 Nuclei",
+      "Chapter 14 Semiconductor Electronics: Materials, Devices and Simple Circuits"
+    ]
+  },
+  "English": {
+    "chapters": [
+      "Chapter 1 The Last Lesson",
+      "Chapter 2 Lost Spring",
+      "Chapter 3 Deep Water",
+      "Chapter 4 The Rattrap",
+      "Chapter 5 Indigo",
+      "Chapter 6 Poets and Pancakes",
+      "Chapter 7 The Interview",
+      "Chapter 8 Going Places",
+      "Chapter 9 My Mother at Sixty-six",
+      "Chapter 10 Keeping Quiet",
+      "Chapter 11 A Thing of Beauty",
+      "Chapter 12 A Roadside Stand",
+      "Chapter 13 Aunt Jeniffer's Tigers",
+      "Chapter 14 The Third Level",
+      "Chapter 15 The Tiger King",
+      "Chapter 16 Journey to the End of the Earth",
+      "Chapter 17 The Enemy",
+      "Chapter 18 On the Face of It",
+      "Chapter 19 Memories of Childhood"
+    ]
+  },
+  "Accountancy": {
+    "chapters": [
+      "Chapter 1 Accounting for Partnership: Basic Concepts",
+      "Chapter 2 Reconstitution of a Partnership Firm – Admission of a Partner",
+      "Chapter 3 Reconstitution of a Partnership Firm – Retirement/Death of a Partner",
+      "Chapter 4 Dissolution of Partnership Firm",
+      "Chapter 5 Accounting for Share Capital",
+      "Chapter 6 Issue and Redemption of Debentures",
+      "Chapter 7 Financial Statements of a Company",
+      "Chapter 8 Analysis of Financial Statements",
+      "Chapter 9 Accounting Ratios",
+      "Chapter 10 Cash Flow Statement"
+    ]
+  },
+  "Business Studies": {
+    "chapters": [
+      "Chapter 1 Nature and Significance of Management",
+      "Chapter 2 Principles of Management",
+      "Chapter 3 Business Environment",
+      "Chapter 4 Planning",
+      "Chapter 5 Organising",
+      "Chapter 6 Staffing",
+      "Chapter 7 Directing",
+      "Chapter 8 Controlling",
+      "Chapter 9 Financial Management",
+      "Chapter 10 Marketing",
+      "Chapter 11 Consumer Protection"
+    ]
+  },
+  "Economics": {
+    "chapters": [
+      "Chapter 1 Introduction",
+      "Chapter 2 Theory of Consumer Behaviour",
+      "Chapter 3 Production and Costs",
+      "Chapter 4 The Theory of Firm under Perfect Competition",
+      "Chapter 5 Market Equilibrium",
+      "Chapter 6 National Income Accounting",
+      "Chapter 7 Money and Banking",
+      "Chapter 8 Determination of Income and Employment",
+      "Chapter 9 Government Budget and Economy",
+      "Chapter 10 Open Economy Macroeconomics"
+    ]
+  },
+  "Informatics Practices": {
+    "chapters": [
+      "Chapter 1 Querying and SQL Functions",
+      "Chapter 2 Data Handling Using Pandas - I",
+      "Chapter 3 Data Handling Using Pandas - II",
+      "Chapter 4 Plotting Data using Matplotlib",
+      "Chapter 5 Internet and Web",
+      "Chapter 6 Societal Impacts",
+      "Chapter 7 Project-Based Learning"
+    ]
+  },
+  "Computer Science": {
+    "chapters": [
+      "Chapter 1 Exception Handling in Python",
+      "Chapter 2 File Handling in Python",
+      "Chapter 3 Stack",
+      "Chapter 4 Queue",
+      "Chapter 5 Sorting",
+      "Chapter 6 Searching",
+      "Chapter 7 Understanding Data",
+      "Chapter 8 Database Concepts",
+      "Chapter 9 Structured Query Language (SQL)",
+      "Chapter 10 Computer Networks",
+      "Chapter 11 Data Communication",
+      "Chapter 12 Security Aspects",
+      "Chapter 13 Project-Based Learning"
+    ]
+  }
+}
+}
