@@ -1,218 +1,332 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from typing import List, Dict, Tuple
-from pydantic import BaseModel, Field
-from datetime import datetime
-import uuid
-import os
 import json
-from io import BytesIO
-import re
-from openai import OpenAI
+import os
+import openai
 from dotenv import load_dotenv
-from langchain.docstore.document import Document
-from langchain_community.embeddings import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import FAISS
-from pypdf import PdfReader
+import logging
+from datetime import datetime
+from typing import Dict, List
 
-# Initialize Flask app
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 app = Flask(__name__)
 CORS(app)
 
-# Load environment variables
 load_dotenv()
-api_key = os.getenv('OPENAI_API_KEY')
-client = OpenAI(api_key=api_key)
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
-# Global variables
-vectordb = None
-chat_histories = {}
-
-class ChatMessage(BaseModel):
-    text: str
-    is_user: bool
-    message_type: str = "text"
-    file_path: str = None
-    curriculum_data: dict = None
-    timestamp: datetime = Field(default_factory=datetime.now)
-
-    def dict(self):
-        return {
-            "text": self.text,
-            "is_user": self.is_user,
-            "message_type": self.message_type,
-            "file_path": self.file_path,
-            "curriculum_data": self.curriculum_data,
-            "timestamp": self.timestamp.isoformat()
-        }
-
-class ChatHistory(BaseModel):
-    id: str
-    messages: List[ChatMessage]
-    timestamp: datetime = Field(default_factory=datetime.now)
-
-def parse_pdf(file: BytesIO, filename: str) -> Tuple[List[str], str]:
-    pdf = PdfReader(file)
-    output = []
-    for page in pdf.pages:
-        text = page.extract_text()
-        text = re.sub(r"(\w+)-\n(\w+)", r"\1\2", text)
-        text = re.sub(r"(?<!\n\s)\n(?!\s\n)", " ", text.strip())
-        text = re.sub(r"\n\s*\n", "\n\n", text)
-        output.append(text)
-    return output, filename
-
-def text_to_docs(text: List[str], filename: str) -> List[Document]:
-    if isinstance(text, str):
-        text = [text]
+class ConversationMemory:
+    def _init_(self):
+        self.conversations: Dict[str, List[Dict]] = {}
+        self.user_data = {}
     
-    page_docs = [Document(page_content=page) for page in text]
-    for i, doc in enumerate(page_docs):
-        doc.metadata["page"] = i + 1
+    def add_message(self, session_id: str, role: str, content: str):
+        if session_id not in self.conversations:
+            self.conversations[session_id] = []
+        message = {
+            'role': role,
+            'content': content,
+            'timestamp': datetime.now().isoformat()
+        }
+        self.conversations[session_id].append(message)
+    
+    def add_user_data(self, session_id: str, user_data: dict):
+        self.user_data[session_id] = user_data
 
-    doc_chunks = []
-    for doc in page_docs:
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=4000,
-            separators=["\n\n", "\n", ".", "!", "?", ",", " ", ""],
-            chunk_overlap=0,
-        )
-        chunks = text_splitter.split_text(doc.page_content)
-        for i, chunk in enumerate(chunks):
-            doc = Document(
-                page_content=chunk,
-                metadata={
-                    "page": doc.metadata["page"],
-                    "chunk": i,
-                    "source": f"{doc.metadata['page']}-{i}",
-                    "filename": filename
-                }
-            )
-            doc_chunks.append(doc)
-    return doc_chunks
-
-def docs_to_index(docs, openai_api_key):
-    return FAISS.from_documents(docs, OpenAIEmbeddings(openai_api_key=openai_api_key))
-
-@app.route('/api/chat/new-chat', methods=['POST'])
-def new_chat():
-    chat_id = str(uuid.uuid4())
-    chat_histories[chat_id] = ChatHistory(
-        id=chat_id,
-        messages=[
-            ChatMessage(
-                text="Hello! I'm your AI Tutor. How can I help you today?",
-                is_user=False
-            )
-        ]
-    )
-    return jsonify({"chat_id": chat_id})
-
-@app.route('/api/chat/chat', methods=['POST'])
-def chat():
-    try:
-        data = request.get_json()
-        if not data:
-            return jsonify({"error": "No JSON data received"}), 400
-
-        message = data.get('message')
-        chat_id = data.get('chat_id')
-
-        if not chat_id or not message:
-            return jsonify({"error": "Chat ID and message are required"}), 400
-
-        if chat_id not in chat_histories:
-            chat_histories[chat_id] = ChatHistory(id=chat_id, messages=[])
-
-        # Add user message to history
-        chat_histories[chat_id].messages.append(
-            ChatMessage(text=message, is_user=True)
-        )
-
-        # Use OpenAI for all queries
-        messages = [{"role": "system", "content": "You are a helpful AI tutor. When responding to questions about class subjects and chapters, be clear and informative. For curriculum-related questions, provide structured information about subjects and chapters."}]
+    def get_user_data(self, session_id: str) -> dict:
+        return self.user_data.get(session_id, {})
         
-        for msg in chat_histories[chat_id].messages:
-            role = "user" if msg.is_user else "assistant"
-            messages.append({"role": role, "content": msg.text})
+    def get_conversation_history(self, session_id: str, max_messages: int = 10) -> List[Dict]:
+        if session_id not in self.conversations:
+            return []
+        return self.conversations[session_id][-max_messages:]
+    
+    def clear_conversation(self, session_id: str):
+        if session_id in self.conversations:
+            self.conversations[session_id] = []
 
-        completion = client.chat.completions.create(
+memory = ConversationMemory()
+
+def load_curriculum_data():
+    """Load curriculum data from JSON file"""
+    json_path = r"D:\StudioProjects\school\assets\data\chatbot.json"
+    
+    try:
+        if os.path.exists(json_path):
+            with open(json_path, 'r', encoding='utf-8') as f:
+                curriculum_data = json.load(f)
+                logger.info("Successfully loaded curriculum data")
+                return curriculum_data
+        else:
+            logger.error(f"Curriculum file not found at: {json_path}")
+            return {}
+    except Exception as e:
+        logger.error(f"Error loading curriculum data: {str(e)}")
+        return {}
+
+def is_standards_query(query: str) -> bool:
+    query_lower = query.lower()
+    keywords = [
+        'what standards', 'which standards', 'available standards',
+        'what classes', 'which classes', 'available classes', 
+        'list standards', 'show standards', 'tell me standards',
+        'what standard', 'which standard', 'tell me the standards'
+    ]
+    return any(keyword in query_lower for keyword in keywords)
+
+def get_standards_response() -> dict:
+    standards = sorted(curriculum_data.keys())
+    if standards:
+        response = "Here are the available standards:\n\n"
+        for std in standards:
+            response += f"• Standard {std}\n"
+        return {
+            "response": response,
+            "type": "text"
+        }
+    return {
+        "response": "Sorry, no curriculum data is currently available.",
+        "type": "text"
+    }
+
+def extract_query_info(query: str):
+    query_lower = query.lower()
+    standard = None
+    
+    for std in curriculum_data.keys():
+        if std.lower() in query_lower:
+            standard = std
+            break
+
+    subjects = set()
+    for std_data in curriculum_data.values():
+        subjects.update(std_data.keys())
+    
+    subject = None
+    for sub in subjects:
+        if sub.lower() in query_lower:
+            subject = sub
+            break
+
+    return {
+        'standard': standard,
+        'subject': subject
+    }
+
+def is_curriculum_query(query: str) -> bool:
+    query_lower = query.lower()
+    
+    curriculum_keywords = [
+        'what chapters', 'list chapters', 'show chapters',
+        'which chapters', 'chapters in', 'tell me chapters',
+        'syllabus', 'curriculum', 'what are the chapters',
+        'tell me the chapters'
+    ]
+    
+    has_standard_mention = any(std.lower() in query_lower for std in curriculum_data.keys())
+    subjects = set()
+    for std_data in curriculum_data.values():
+        subjects.update(std_data.keys())
+    has_subject_mention = any(subject.lower() in query_lower for subject in subjects)
+    
+    has_curriculum_keyword = any(keyword in query_lower for keyword in curriculum_keywords)
+    
+    return has_curriculum_keyword or (has_standard_mention and has_subject_mention)
+
+def get_chapters_response(standard: str, subject: str) -> str:
+    try:
+        if standard in curriculum_data and subject in curriculum_data[standard]:
+            chapters = curriculum_data[standard][subject]
+            chapter_list = '\n'.join([f"• {chapter}" for chapter in chapters['chapters']])
+            return f"Here are the chapters for {subject} in Standard {standard}:\n\n{chapter_list}"
+        else:
+            return f"Sorry, I couldn't find chapter information for {subject} in Standard {standard}."
+    except Exception as e:
+        logger.error(f"Error getting chapters: {str(e)}")
+        return "Sorry, I encountered an error while fetching the chapter information."
+
+def handle_curriculum_query(query: str, session_id: str) -> dict:
+    try:
+        if is_standards_query(query):
+            response = get_standards_response()
+            memory.add_message(session_id, "assistant", response["response"])
+            return response
+        
+        query_info = extract_query_info(query)
+        standard = query_info['standard']
+        subject = query_info['subject']
+
+        if not standard:
+            user_data = memory.get_user_data(session_id)
+            standard = user_data.get('standard', '')
+            
+            if standard:
+                if '11th' in standard.lower() or '12th' in standard.lower():
+                    # No stream division for 11th and 12th standards
+                    pass
+
+        if not standard:
+            return {
+                "response": "Please specify which class you're asking about.",
+                "type": "text"
+            }
+
+        if subject:
+            response = {
+                "response": get_chapters_response(standard, subject),
+                "type": "text"
+            }
+        elif standard in curriculum_data:
+            subjects = list(curriculum_data[standard].keys())
+            response = {
+                "response": f"Available subjects for Standard {standard}: {', '.join(subjects)}",
+                "type": "text"
+            }
+        else:
+            response = {
+                "response": f"No curriculum data found for Standard {standard}.",
+                "type": "text"
+            }
+            
+        memory.add_message(session_id, "assistant", response["response"])
+        return response
+
+    except Exception as e:
+        logger.error(f"Error: {str(e)}")
+        error_response = {
+            "response": "Error processing request. Please try again.",
+            "type": "text"
+        }
+        memory.add_message(session_id, "assistant", error_response["response"])
+        return error_response
+
+def handle_educational_query(query: str, session_id: str) -> dict:
+    try:
+        conversation_history = memory.get_conversation_history(session_id)
+        user_data = memory.get_user_data(session_id)
+        
+        system_message = """You are a helpful AI tutor for school students. Use this student information:
+        Name: {name}
+        Standard: {standard} 
+        Stream: {stream}
+        
+        Focus on:
+        - Providing clear, accurate explanations
+        - Using age-appropriate language
+        - Breaking down complex topics
+        - Explaining step-by-step solutions
+        - Providing relevant examples
+        - Maintaining context from previous messages"""
+
+        messages = [
+            {
+                "role": "system",
+                "content": system_message.format(
+                    name=user_data.get('name', 'Student'),
+                    standard=user_data.get('standard', 'Unknown'),
+                    stream=user_data.get('stream', '')
+                )
+            }
+        ]
+        
+        for msg in conversation_history:
+            messages.append({
+                "role": msg["role"],
+                "content": msg["content"]
+            })
+        
+        messages.append({
+            "role": "user",
+            "content": query
+        })
+        
+        response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=messages
         )
         
-        response = {
-            "text": completion.choices[0].message.content,
-            "message_type": "text",
+        assistant_response = response.choices[0].message['content']
+        memory.add_message(session_id, "assistant", assistant_response)
+        
+        return {
+            "response": assistant_response,
+            "type": "text"
+        }
+    except Exception as e:
+        logger.error(f"Error in OpenAI response: {str(e)}")
+        error_response = "I encountered an error while processing your question. Please try again."
+        memory.add_message(session_id, "assistant", error_response)
+        return {
+            "response": error_response,
+            "type": "text"
         }
 
-        # Add AI response to history
-        chat_histories[chat_id].messages.append(
-            ChatMessage(
-                text=response["text"],
-                is_user=False,
-                message_type=response["message_type"]
-            )
-        )
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    try:
+        data = request.json
+        if not data or 'message' not in data:
+            return jsonify({"error": "No message provided"}), 400
+        
+        user_message = data['message']
+        session_id = data.get('session_id', 'default_session')
+        
+        logger.info(f"Received message: {user_message} for session: {session_id}")
+        
+        memory.add_message(session_id, "user", user_message)
+        
+        if is_standards_query(user_message):
+            logger.info("Processing as standards query")
+            response = get_standards_response()
+        elif is_curriculum_query(user_message):
+            logger.info("Processing as curriculum query")
+            response = handle_curriculum_query(user_message, session_id)
+        else:
+            logger.info("Processing as educational query")
+            response = handle_educational_query(user_message, session_id)
 
-        return jsonify({
-            "response": response["text"],
-            "message_type": response["message_type"],
-            "chat_id": chat_id
-        })
+        return jsonify(response)
 
     except Exception as e:
+        logger.error(f"Error in chat endpoint: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/api/chat/upload', methods=['POST'])
-def upload_file():
-    if 'file' not in request.files:
-        return jsonify({"error": "No file provided"}), 400
-
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({"error": "No file selected"}), 400
-
+@app.route('/api/chat/user', methods=['POST'])
+def set_user_data():
     try:
-        upload_dir = os.path.join(app.root_path, 'uploads')
-        os.makedirs(upload_dir, exist_ok=True)
-
-        filename = str(uuid.uuid4()) + '_' + file.filename
-        file_path = os.path.join(upload_dir, filename)
-        file.save(file_path)
-
-        if file.filename.endswith('.pdf'):
-            file_content = file.read()
-            file.seek(0)
-            parsed_text, _ = parse_pdf(BytesIO(file_content), file.filename)
-            docs = text_to_docs(parsed_text, file.filename)
-            global vectordb
-            vectordb = docs_to_index(docs, api_key)
-
-        return jsonify({
-            "message": "File uploaded successfully",
-            "file_path": file_path
-        })
-
+        data = request.json
+        session_id = data.get('session_id', 'default_session')
+        user_data = {
+            'name': data.get('name'),
+            'standard': data.get('standard'),
+            'stream': data.get('stream')
+        }
+        memory.add_user_data(session_id, user_data)
+        return jsonify({"message": "User data stored successfully"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/chat/history', methods=['GET'])
 def get_chat_history():
-    chat_id = request.args.get('chat_id')
-    if not chat_id:
-        return jsonify({"error": "Chat ID is required"}), 400
+    session_id = request.args.get('session_id', 'default_session')
+    history = memory.get_conversation_history(session_id)
+    return jsonify({"history": history})
 
-    if chat_id not in chat_histories:
-        return jsonify({"error": "Chat history not found"}), 404
-
-    history = chat_histories[chat_id]
-    return jsonify({
-        "id": history.id,
-        "messages": [msg.dict() for msg in history.messages],
-        "timestamp": history.timestamp.isoformat()
-    })
+@app.route('/api/chat/clear', methods=['POST'])
+def clear_chat():
+    session_id = request.json.get('session_id', 'default_session')
+    memory.clear_conversation(session_id)
+    return jsonify({"message": "Conversation cleared successfully"})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    logger.info("Loading curriculum data...")
+    curriculum_data = load_curriculum_data()
+    if not curriculum_data:
+        logger.warning("No curriculum data loaded. Check if JSON file exists.")
+    else:
+        logger.info(f"Loaded curriculum data for standards: {list(curriculum_data.keys())}")
+        
+    logger.info("Starting server...")
+    app.run(debug=True, host='0.0.0.0', port=5000)
